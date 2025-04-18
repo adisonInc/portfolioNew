@@ -1,6 +1,8 @@
 ---
+import Backgrounds from "./Backgrounds.astro"
 import TopBar from "./top_bar.astro"
 import  MainStyle from "../styles/main.astro"
+import System from "./system.astro"
 ---
 
 <html lang="en">
@@ -13,14 +15,16 @@ import  MainStyle from "../styles/main.astro"
 	</head>
 	
 	<body>
-	
+		<Backgrounds></Backgrounds>
 		<MainStyle></MainStyle>
 		<TopBar></TopBar>
-		<h1>Astro</h1>
+		<System></System>
 	</body>
 	<style>
 		body{
-			background-color: antiquewhite;
+			font-family: 'Roboto Mono', monospace;
+			background-color: #0c0628;
+			margin: 0;
 		}
 	</style>
 </html>

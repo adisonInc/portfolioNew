@@ -1,0 +1,47 @@
+---
+import Small from "./Small.astro"
+
+
+---
+
+
+<div class="solar">
+<img  class="elips" src="/img/circle2.svg" alt="elipsa" />
+<div class="planets">
+    <Small color="#00879E" top="0%" left="50%" rotate="-90deg" img="/img/rust.png" />
+    <Small color="#AA60C8" top="50%" left="0%" rotate="180deg" img="/img/cpp.png" />
+    <Small color="#B3D8A8" top="100%" left="50%" rotate="90deg" img="/img/astro.png" />
+    <Small color="#E195AB" top="50%" left="100%" rotate="0deg"  img="/img/python.svg"/>
+</div>
+</div>
+<style>
+    .solar{
+        width: 30vh;
+        height: 30vh;
+        background-color: aqua;
+        position: absolute;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .elips{
+        width: 200%;
+        height: 200%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        position: absolute;
+
+    }
+    .planets{
+        width:  190%;        
+        height: 190%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+
+</style>
