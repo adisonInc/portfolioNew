@@ -2,26 +2,53 @@
 
 ---
 
-<div class="tree" class="trigger">
-    <p>Start</p>
-
-    <p> About me</p>
-    <div >
-        <p>Projects</p>
-
+<div class="tree">
+    <p id="start">Start*</p>
+    <p id="about">About me*</p>
+    <div>
+        <p id="proj">Projects*</p>
         <div class="right">
-            <p>pro1</p>
-            <p>pro2</p>
+            <p id="pro1">pro1--</p>
+            <p id="pro2">pro2--</p>
         </div>
-        
-    </div>
-    <p>Contact</p>
-    
+    <p id="cont">Contact*</p>
 </div>
 
 
+<script>
+    import { gsap } from "gsap";
+
+
+  let buttons = document.querySelectorAll('div.tree p');
+
+
+    
+
+  buttons.forEach((button) => {
+
+    let animation = gsap.to(button, {
+        scale: "+=.5",
+        duration: 0.1,
+        paused: true,
+    });
+    button.addEventListener("mouseenter", () => animation.play());
+    button.addEventListener("mouseleave", () => animation.reverse());
+
+    button.addEventListener('click', () => {
+        let whichButton = button.id;
+        let stringer = `${whichButton}`
+        button.innerHTML = stringer;
+      alert(whichButton);
+    });
+  });
+</script>
+
 <style>
+    p:hover{
+       
+    }    
     .tree{
+        text-align: right;
         opacity: 0;
         display: flex;
         flex-direction: column;
@@ -30,8 +57,10 @@
         right: -10%;
         color: red;
         transform: translateY(-50%);
+        margin: 0;
     }
     .right{
         margin-left: 40px;
     }
 </style>
+
