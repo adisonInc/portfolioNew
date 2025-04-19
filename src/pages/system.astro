@@ -4,8 +4,8 @@ import Small from "./Small.astro"
 
 ---
 
-<div class="solar">
-    <img  class="elips" src="/img/circle2.svg" alt="elipsa" />
+<div class="solar" >
+    <img  class="elips" src="/img/circle1.svg" alt="elipsa" />
     <div class="planets">
         <Small color="#00879E" top="0%" left="50%" rotate="-90deg" img="/img/rust.png" />
         <Small color="#AA60C8" top="50%" left="0%" rotate="180deg" img="/img/cpp.png" />
@@ -22,11 +22,13 @@ import Small from "./Small.astro"
         border-radius: 50%;
         left: 50%;
         top: 50%;
+        box-shadow: inset -10px -10px 20px #00ffaa,
+        inset 10px 10px 20px #00ffaa;
         transform: translate(-50%,-50%);
     }
     .elips{
-        width: 200%;
-        height: 200%;
+        width: 220%;
+        height: 220%;
         left: 50%;
         top: 50%;
         transform: translate(-50%,-50%);

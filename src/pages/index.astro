@@ -4,7 +4,7 @@ import TopBar from "./top_bar.astro"
 import  MainStyle from "../styles/main.astro"
 import System from "./system.astro"
 import Anim from "./animations/anim.astro"
-
+import Menu from "./menu.astro"
 ---
 
 <html lang="en">
@@ -24,7 +24,8 @@ import Anim from "./animations/anim.astro"
 		<Backgrounds></Backgrounds>
 		<MainStyle></MainStyle>
 		<TopBar></TopBar>
-		<System></System>	
+		<System class="trigger"></System>	
+		<Menu class="trigger"></Menu>
 	</body>
 	<style>
 		body{

@@ -3,17 +3,21 @@
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     gsap.registerPlugin(ScrollTrigger);
 
-    
+    const labels = ["first", "second", "third", "fourth"]; // Add more labels here
+    const totalRotation = 360;
+    const rotateStep = totalRotation / labels.length;
+
+
     
   let tl = gsap.timeline( {
     scrollTrigger: {
-    
+    // onEnter: () => idle.kill(),
     trigger: ".solar",
     pin: ".solar",
     start: "center center",
     endTrigger: ".end",
     end: 'bottom bottom',
-    markers: true,
+    // markers: true,
     scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
         snap: {
             snapTo: 'labels', // snap to the closest label in the timeline
@@ -23,26 +27,27 @@
         }
   }});
 
+
   
 tl.addLabel("start")
 .to(".solar",{
     x: "-50vw",
     rotate: "360",
     duration: 1,
-}).addLabel("first")
-.to(".solar",{
-    rotate: "+=90",
+}).to(".tree",{
+    right: "5%",
+    opacity: +1,
     duration: 1,
-}).addLabel("second").to(".solar",{
-    rotate: "+=90",
-    duration: 1,
-}).addLabel("third").to(".solar",{
-    rotate: "+=90",
-    duration: 1,
-}).addLabel("fourth").to(".solar",{
-    rotate: "+=90",
-    duration: 1,
-})
+
+},"<");
+
+labels.forEach((label, i) => {
+  tl.addLabel(label)
+    .to(".solar", {
+      rotate: `+=${rotateStep}`,
+      duration: 1,
+    });
+});
 
 </script>
 
