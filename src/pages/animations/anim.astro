@@ -1,30 +1,29 @@
 <script>
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
-    gsap.registerPlugin(ScrollTrigger);
     import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+    gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(ScrollToPlugin);
+
+
     const labels = ["first", "second", "third", "fourth"]; // Add more labels here
     const totalRotation = 360;
     const rotateStep = totalRotation / labels.length;
 
-
     
   let tl = gsap.timeline( {
     scrollTrigger: {
-    // onEnter: () => idle.kill(),
     trigger: ".solar",
     pin: ".solar",
     start: "center center",
     endTrigger: ".end",
     end: 'bottom bottom',
-    // markers: true,
-    scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+    scrub: 1,
         snap: {
-            snapTo: 'labels', // snap to the closest label in the timeline
-            duration: {min: 2, max: 3},// the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-            delay: 0.1, // wait 0.2 seconds from the last scroll event before doing the snapping
-            ease: 'power1.inOut' // the ease of the snap animation ("power3" by default)
+            snapTo: 'labels', 
+            duration: {min: 2, max: 3},
+            delay: 0.1, 
+            ease: 'power1.inOut' 
         }
   }});
 
@@ -44,7 +43,6 @@ tl.addLabel("start")
 
 
 
-  // Dodajemy resztę labeli (jako id p tagów)
   labels.forEach((label, i) => {
     tl.addLabel(label).to(".solar", {
       rotate: `+=${rotateStep}`,
@@ -52,12 +50,10 @@ tl.addLabel("start")
     });
   });
 
-  // Obsługa interakcji w menu
   window.addEventListener("DOMContentLoaded", () => {
     let buttons = document.querySelectorAll(".tree p");
 
     buttons.forEach((button) => {
-      // animacja powiększenia przy hover
       let animation = gsap.to(button, {
         scale: "+=0.5",
         duration: 0.1,
@@ -67,7 +63,6 @@ tl.addLabel("start")
       button.addEventListener("mouseenter", () => animation.play());
       button.addEventListener("mouseleave", () => animation.reverse());
 
-      // Scroll do labela na klik
       button.addEventListener("click", () => {
         let label = button.id;
 
@@ -86,8 +81,3 @@ tl.addLabel("start")
 
 </script>
 
-<style>
-  
-
-</style>
-</script>
