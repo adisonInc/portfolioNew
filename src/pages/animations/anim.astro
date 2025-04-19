@@ -26,8 +26,8 @@ import Small from "../Small.astro";
     scrub: 1,
         snap: {
             snapTo: 'labels', 
-            duration: {min: 2, max: 3},
-            delay: 0.1, 
+            duration: {min: 1, max: 10},
+            delay: 0, 
             ease: 'power1.inOut' 
         }
   }});
@@ -44,18 +44,28 @@ tl.addLabel("start")
     opacity: +1,
     duration: 1,
 
-},"<");
+},).to(".descMain",{
+     opacity: "+=0.7",
+    },"<");
 
 
 
   labels.forEach((label, i) => {
     tl.addLabel(label).to(".solar", {
       rotate: `+=${rotateStep}`,
+      
       duration: 1,
-    }).to(".descText", {
-        
+    })
+   
+    .to(".descText", {
         text: `${descs[i]} dsa`
-    },"-=1.5");;
+    },"-=1.5")
+    .to(`#${label}`,{
+       color: "blue",
+      },"<")
+    .to(`#${label}`,{
+       color: "red",
+    })
   });
 
   window.addEventListener("DOMContentLoaded", () => {
