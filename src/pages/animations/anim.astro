@@ -2,15 +2,20 @@
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+    import { TextPlugin } from "gsap/all";
+import Small from "../Small.astro";
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(ScrollToPlugin);
+    gsap.registerPlugin(TextPlugin)
+
 
 
     const labels = ["first", "second", "third", "fourth"]; // Add more labels here
     const totalRotation = 360;
     const rotateStep = totalRotation / labels.length;
 
-    
+    let descs = ["jeden","dwa", "trzy","cztery"]
+
   let tl = gsap.timeline( {
     scrollTrigger: {
     trigger: ".solar",
@@ -47,11 +52,16 @@ tl.addLabel("start")
     tl.addLabel(label).to(".solar", {
       rotate: `+=${rotateStep}`,
       duration: 1,
-    });
+    }).to(".descText", {
+        
+        text: `${descs[i]} dsa`
+    },"-=1.5");;
   });
 
   window.addEventListener("DOMContentLoaded", () => {
+
     let buttons = document.querySelectorAll(".tree p");
+    let descBox = document.getElementById("descBox")
 
     buttons.forEach((button) => {
       let animation = gsap.to(button, {
@@ -63,9 +73,10 @@ tl.addLabel("start")
       button.addEventListener("mouseenter", () => animation.play());
       button.addEventListener("mouseleave", () => animation.reverse());
 
+
       button.addEventListener("click", () => {
         let label = button.id;
-
+        
         if (tl.scrollTrigger) {
           let scrollTo = tl.scrollTrigger.labelToScroll(label);
 
