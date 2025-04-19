@@ -3,6 +3,8 @@ import Backgrounds from "./Backgrounds.astro"
 import TopBar from "./top_bar.astro"
 import  MainStyle from "../styles/main.astro"
 import System from "./system.astro"
+import Anim from "./animations/anim.astro"
+
 ---
 
 <html lang="en">
@@ -13,18 +15,34 @@ import System from "./system.astro"
 		<meta name="generator" content={Astro.generator} />
 		<title>Kamil</title>
 	</head>
-	
+
 	<body>
+		
+		<div class="end"></div>
+
+		<Anim></Anim>
 		<Backgrounds></Backgrounds>
 		<MainStyle></MainStyle>
 		<TopBar></TopBar>
-		<System></System>
+		<System></System>	
 	</body>
 	<style>
 		body{
 			font-family: 'Roboto Mono', monospace;
 			background-color: #0c0628;
+			height: 300vh;
 			margin: 0;
 		}
+
+		.end{	
+			position: absolute;
+			top: 300vh;
+			height: 10px;
+			background-color: blueviolet;
+			width: 100%;
+			
+
+		}
+
 	</style>
 </html>
