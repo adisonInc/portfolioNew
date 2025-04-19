@@ -8,16 +8,19 @@
     <div>
         <p id="proj">Projects*</p>
         <div class="right">
-            <p id="pro1">pro1--</p>
-            <p id="pro2">pro2--</p>
+            <p id="first">pro1--</p>
+            <p id="second">pro2--</p>
+            <p id="third">pro3--</p>
+            <p id="fourth">pro4--</p>
         </div>
     <p id="cont">Contact*</p>
 </div>
 
 
-<script>
+<!-- <script>
     import { gsap } from "gsap";
-
+    import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+    gsap.registerPlugin(ScrollToPlugin);
 
   let buttons = document.querySelectorAll('div.tree p');
 
@@ -34,14 +37,9 @@
     button.addEventListener("mouseenter", () => animation.play());
     button.addEventListener("mouseleave", () => animation.reverse());
 
-    button.addEventListener('click', () => {
-        let whichButton = button.id;
-        let stringer = `${whichButton}`
-        button.innerHTML = stringer;
-      alert(whichButton);
-    });
+  
   });
-</script>
+</script> -->
 
 <style>
     p:hover{
