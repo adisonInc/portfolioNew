@@ -3,7 +3,6 @@
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     import { ScrollToPlugin } from "gsap/ScrollToPlugin";
     import { TextPlugin } from "gsap/all";
-import Small from "../Small.astro";
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(ScrollToPlugin);
     gsap.registerPlugin(TextPlugin)
@@ -14,7 +13,8 @@ import Small from "../Small.astro";
     const totalRotation = 360;
     const rotateStep = totalRotation / labels.length;
 
-    let descs = ["jeden","dwa", "trzy","cztery"]
+    let descs = ['<br><h4> *--Project 1 </h4> <p> <h3> WORK IN PROGRESS <h3> <br> Ten projekt to strona napisana w astro i to moje portfolio<p>'
+    ,"WORK IN PROGRESS 2 ", "WORK IN PROGRESS 3","WORK IN PROGRESS 4"]
 
   let tl = gsap.timeline( {
     scrollTrigger: {
@@ -25,8 +25,8 @@ import Small from "../Small.astro";
     end: 'bottom bottom',
     scrub: 1,
         snap: {
-            snapTo: 'labels', 
-            duration: {min: 1, max: 10},
+            snapTo: 'labelsDirectional', 
+            duration: {min: 0.1, max: 1},
             delay: 0, 
             ease: 'power1.inOut' 
         }
@@ -44,7 +44,10 @@ tl.addLabel("start")
     opacity: +1,
     duration: 1,
 
-},).to(".descMain",{
+},).fromTo(".descMain",{
+    y: "-100vh",
+},{
+    y: "+=100vh",
      opacity: "+=0.7",
     },"<");
 
@@ -56,9 +59,9 @@ tl.addLabel("start")
       
       duration: 1,
     })
-   
+  
     .to(".descText", {
-        text: `${descs[i]} dsa`
+        text: `${descs[i]} `
     },"-=1.5")
     .to(`#${label}`,{
        color: "blue",
