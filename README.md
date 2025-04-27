@@ -12,9 +12,7 @@ This space-themed site is where I showcase my work, skills, and cosmic creativit
 
 - ⚡ **Blazing Fast** with Astro
 - 🎨 Beautiful, minimal design
-- 🌙 Dark mode support
 - 📱 Fully responsive
-- 🧠 SEO optimized
 - 🛠️ Easily customizable
 
 ---
@@ -22,7 +20,6 @@ This space-themed site is where I showcase my work, skills, and cosmic creativit
 ## 🧰 Tech Stack
 
 - 🧑‍🚀 **Astro** – modern static site builder
-- 💅 **Tailwind CSS** – utility-first styling
 - 🔤 **Markdown** – for content
 - 🪐 **Icons & SVGs** – cosmic vibes
 
