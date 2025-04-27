@@ -1,20 +1,19 @@
+
 <script>
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     import { ScrollToPlugin } from "gsap/ScrollToPlugin";
     import { TextPlugin } from "gsap/all";
+import { descs } from "../descContent.astro";
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(ScrollToPlugin);
     gsap.registerPlugin(TextPlugin)
-
 
 
     const labels = ["first", "second", "third", "fourth"]; // Add more labels here
     const totalRotation = 360;
     const rotateStep = totalRotation / labels.length;
 
-    let descs = ['<br><h4> *--Project 1 </h4> <p> <h3> WORK IN PROGRESS <h3> <br> Ten projekt to strona napisana w astro i to moje portfolio<p>'
-    ,"WORK IN PROGRESS 2 ", "WORK IN PROGRESS 3","WORK IN PROGRESS 4"]
 
   let tl = gsap.timeline( {
     scrollTrigger: {
@@ -67,7 +66,7 @@ tl.addLabel("start")
        color: "blue",
       },"<")
     .to(`#${label}`,{
-       color: "red",
+       color: "white",
     })
   });
 
