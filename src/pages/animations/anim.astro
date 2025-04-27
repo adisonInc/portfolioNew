@@ -9,11 +9,17 @@ import { descs } from "../descContent.astro";
     gsap.registerPlugin(ScrollToPlugin);
     gsap.registerPlugin(TextPlugin)
 
+    ScrollTrigger.normalizeScroll(true);
 
     const labels = ["first", "second", "third", "fourth"]; // Add more labels here
     const totalRotation = 360;
     const rotateStep = totalRotation / labels.length;
 
+
+    function updateProject(i: number) {
+        gsap.set(".proj", { autoAlpha: 0 });
+        gsap.to(`#proj${i}`, { autoAlpha: 1, duration: 0.5 });
+    }
 
   let tl = gsap.timeline( {
     scrollTrigger: {
@@ -22,6 +28,7 @@ import { descs } from "../descContent.astro";
     start: "center center",
     endTrigger: ".end",
     end: 'bottom bottom',
+    fastScrollEnd: true,
     scrub: 1,
         snap: {
             snapTo: 'labelsDirectional', 
@@ -55,10 +62,8 @@ tl.addLabel("start")
   labels.forEach((label, i) => {
     tl.addLabel(label).to(".solar", {
       rotate: `+=${rotateStep}`,
-      
       duration: 1,
     })
-  
     .to(".descText", {
         text: `${descs[i]} `
     },"-=1.5")
