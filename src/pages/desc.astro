@@ -1,14 +1,18 @@
 ---
-import DescContent from "./descContent.astro"
+import DescContent1 from "./descContent1.astro"
+
 
 ---
 <div id="descBox" class="descMain" style={Astro.props.style}>
-    <p class="descText"></p>
+    <!-- <p class="descText"></p> -->
+   <div >
+     <slot></slot>
+   </div>
 </div>
 
 <style>
     .descText{
-        opacity: 1;
+        opacity: 0;
         margin-left: 20px;
         margin-right: 20px;
         font-size: clamp(12px, 5vw, 24px);

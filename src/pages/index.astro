@@ -1,12 +1,13 @@
 ---
-import Backgrounds from "./Backgrounds.astro"
-import TopBar from "./top_bar.astro"
-import  MainStyle from "../styles/main.astro"
-import System from "./system.astro"
-import Anim from "./animations/anim.astro"
-import Menu from "./menu.astro"
-import Desc from "./desc.astro"
-import DescContent from "./descContent.astro"
+import Backgrounds from "./Backgrounds.astro";
+import TopBar from "./top_bar.astro";
+import MainStyle from "../styles/main.astro";
+import System from "./system.astro";
+import Anim from "./animations/anim.astro";
+import Menu from "./menu.astro";
+import Desc from "./desc.astro";
+import DescContent1 from "./descContent1.astro";
+import DescContent2 from "./descContent2.astro";
 ---
 
 <html lang="en">
@@ -19,69 +20,70 @@ import DescContent from "./descContent.astro"
 	</head>
 
 	<body>
-
 		<div class="end"></div>
-		<Anim></Anim>
-		<Backgrounds></Backgrounds>
-		<MainStyle></MainStyle>
-		<TopBar></TopBar>
-		<System ></System>	
-		<Menu></Menu>
-		<Desc style="position: absolute; top: 135vh; left: 25%;  "/>
-		<Desc style="position: absolute; top: 305vh; left: 25%;"  />
+		<Anim />
+		<Backgrounds />
+		<MainStyle />
+		<TopBar />
+		<System />
+		<Menu />
+		<Desc  style="position: absolute; top: 135vh; left: 25%;">
+			<DescContent1 />
+		</Desc>
+		<Desc style="position: absolute; top: 305vh; left: 25%;" >
+			<DescContent2 />
+		</Desc>
 		<Desc style="position: absolute; top: 480vh; left: 25%; " />
 		<Desc style="position: absolute; top: 640vh; left: 25%;" />
 	</body>
 	<style>
-		body{
-			font-family: 'Roboto Mono', monospace;
-			background-color: #01010f;
+		body {
+			font-family: "Roboto Mono", monospace;
+			background-color: #000007;
 			height: 500vh;
 			margin: 0;
 		}
 
-		.end{	
+		.end {
 			position: absolute;
 			top: 900vh;
 			height: 10px;
-		
-			width: 100%;
-			
 
+			width: 100%;
 		}
 		#first {
-  position: absolute;
-  top: 130vh;
-  left: 50%;
-  width: 200px;
-  height: 300px;
-}
+			position: absolute;
+			top: 130vh;
+			left: 50%;
+			width: 200px;
+			height: 300px;
+		}
 
-#second {
-  position: absolute;
-  top: 200vh;
-  left: 30%;
-  width: 250px;
-  height: 250px;
-  background: #222;
-}
+		#second {
+			position: absolute;
+			top: 200vh;
+			left: 30%;
+			width: 250px;
+			height: 250px;
+			background: #222;
+		}
 
-#third {
-  position: absolute;
-  top: 300vh;
-  left: 70%;
-  width: 180px;
-  height: 320px;
-  background: #333;
-}
+		#third {
+			position: absolute;
+			top: 300vh;
+			left: 70%;
+			width: 180px;
+			height: 320px;
+			background: #333;
+		}
 
-#fourth {
-  position: absolute;
-  top: 400vh;
-  left: 40%;
-  width: 220px;
-  height: 280px;
-  background: #444;
-}
+		#fourth {
+			position: absolute;
+			top: 400vh;
+			left: 40%;
+			width: 220px;
+			height: 280px;
+			background: #444;
+		}
 	</style>
 </html>
