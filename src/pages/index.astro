@@ -27,7 +27,10 @@ import DescContent from "./descContent.astro"
 		<TopBar></TopBar>
 		<System ></System>	
 		<Menu></Menu>
-		<Desc></Desc>
+		<Desc style="position: absolute; top: 135vh; left: 25%;  "/>
+		<Desc style="position: absolute; top: 305vh; left: 25%;"  />
+		<Desc style="position: absolute; top: 480vh; left: 25%; " />
+		<Desc style="position: absolute; top: 640vh; left: 25%;" />
 	</body>
 	<style>
 		body{
@@ -46,6 +49,39 @@ import DescContent from "./descContent.astro"
 			
 
 		}
+		#first {
+  position: absolute;
+  top: 130vh;
+  left: 50%;
+  width: 200px;
+  height: 300px;
+}
 
+#second {
+  position: absolute;
+  top: 200vh;
+  left: 30%;
+  width: 250px;
+  height: 250px;
+  background: #222;
+}
+
+#third {
+  position: absolute;
+  top: 300vh;
+  left: 70%;
+  width: 180px;
+  height: 320px;
+  background: #333;
+}
+
+#fourth {
+  position: absolute;
+  top: 400vh;
+  left: 40%;
+  width: 220px;
+  height: 280px;
+  background: #444;
+}
 	</style>
 </html>
