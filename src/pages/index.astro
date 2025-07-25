@@ -8,6 +8,7 @@ import Menu from "./menu.astro";
 import Desc from "./desc.astro";
 import DescContent1 from "./descContent1.astro";
 import DescContent2 from "./descContent2.astro";
+import Footer from "./footer.astro";
 ---
 
 <html lang="en">
@@ -27,14 +28,19 @@ import DescContent2 from "./descContent2.astro";
 		<TopBar />
 		<System />
 		<Menu />
+		
 		<Desc  style="position: absolute; top: 135vh; left: 25%;">
+			<div id="belt"></div>
 			<DescContent1 />
 		</Desc>
 		<Desc style="position: absolute; top: 305vh; left: 25%;" >
+			<div id="belt"></div>
 			<DescContent2 />
 		</Desc>
 		<Desc style="position: absolute; top: 480vh; left: 25%; " />
+		
 		<Desc style="position: absolute; top: 640vh; left: 25%;" />
+		<Footer></Footer>
 	</body>
 	<style>
 		body {
@@ -42,6 +48,7 @@ import DescContent2 from "./descContent2.astro";
 			background-color: #000007;
 			height: 500vh;
 			margin: 0;
+			scroll-behavior: smooth;
 		}
 
 		.end {
@@ -84,6 +91,17 @@ import DescContent2 from "./descContent2.astro";
 			width: 220px;
 			height: 280px;
 			background: #444;
+		}
+		#belt{
+			
+			height: 100%;
+			position: absolute;
+			z-index: -1;
+			width: 50%;
+			left: 50%;
+			transform: translate(-50%, 0%);
+			background-color: aliceblue;
+			box-shadow: 0px 0px 300px 100px rgb(6, 69, 69);
 		}
 	</style>
 </html>

@@ -3,34 +3,53 @@
 ---
 
 <div class="tree">
-    <p id="start">Start*</p>
-    <p id="about">About me*</p>
+    <p id="start">/Start</p>
+   
     <div>
-        <p id="proj">Projects*</p>
+        <p style="margin-bottom: 10px;" id="proj">/Projects/</p>
         <div class="right">
-            <p id="first">pro1--</p>
-            <p id="second">pro2--</p>
-            <p id="third">pro3--</p>
-            <p id="fourth">pro4--</p>
+            <p id="first"> --Portfolio</p>
+            <p id="second">--Wedding</p>
+            <p id="third">--roject3</p>
+            <p id="fourth">--project4</p>
         </div>
-    <p id="cont">Contact*</p>
+         <p id="about">/About me</p>
+    <p id="cont">/Contact</p>
 </div>
 
 
 <style>
+    .tree p{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
     .tree{
+        margin-top: ;
+        font-weight: bold;
+        color: rgb(7, 32, 255);
+        font-size: 150%;
         right: 5%;
         text-align: right;
         display: flex;
         flex-direction: column;
         position: fixed;
         top: 50%;
-        color: white;
+       
         transform: translateY(-50%);
         margin: 0;
     }
     .right{
+        
+        font-weight: normal;
+        color: rgb(255, 255, 255);
         margin-left: 40px;
+        font-size: 80%;
+    }
+    .right p {
+        font-weight: normal;
+        margin: 0;
+        margin-right: -30px;
+        color: rgb(80, 162, 255);
     }
     
 </style>

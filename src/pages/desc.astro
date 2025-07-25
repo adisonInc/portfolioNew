@@ -3,6 +3,7 @@ import DescContent1 from "./descContent1.astro"
 
 
 ---
+
 <div id="descBox" class="descMain" style={Astro.props.style}>
     <!-- <p class="descText"></p> -->
    <div >
@@ -21,22 +22,28 @@ import DescContent1 from "./descContent1.astro"
 
     .descMain{
         /* opacity: 0; */
+        padding-left: 30px;
         text-align: center;
         font-family: 'Courier New', Courier, monospace;
         color: white;
+        background-color: rgb(1, 2, 42);
         font-size: 30px;
-        width: 50vw;
+        width: 900px;
+        height: 600px;
         text-align: left;
         margin-left: 5vw;
-        height: 60vh; 
-        /* /* border-radius: 15px; */
+         
+        border-radius: 15px;
         /* transform: translate(-50%,-50%); */
         /* background: linear-gradient( #030734ac,#031122ac); */
         
         /* border: 2px solid;
-        border-color: white; */ */
-        -webkit-box-shadow:0px 0px 96px 19px rgba(255,255,255,0.3);
-        -moz-box-shadow: 0px 0px 96px 19px rgba(255,255,255,0.3);
-        box-shadow: 0px 0px 96px 19px rgba(255,255,255,0.3);
+        border-color: white; */
+         box-shadow: 
+            inset -10px -10px 20px #832a2a69, 
+            inset 10px 1px 20px #caf6ff91,
+            0 0 50px #fff,
+            -5px 0 10px rgb(110, 70, 255),
+            5px 0 10px rgb(132, 255, 255)
     }
 </style>
