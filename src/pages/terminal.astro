@@ -153,40 +153,89 @@
 
 <script>
     const commands = {
-        help: `˚. ✦.˳·˖✶ ⋆.✧̣˚.˚. ✦.˳·˖✶ ⋆.✧̣˚.˚. ✦.˳·˖✶ ⋆.✧̣˚
-  <br>Dostępne komendy:<br>
-  help - lista komend<br>
-  about - kilka słów o mnie<br>
-  skills - moje umiejętności<br>
-  projects - moje projekty<br>
-  contact - dane kontaktowe<br>
-  clear - czyści terminal<br>
-  ˚. ✦.˳·˖✶ ⋆.✧̣˚.˚. ✦.˳·˖✶ ⋆.✧̣˚.˚. ✦.˳·˖✶ ⋆.✧̣˚`,
-
-        about: `Cześć, jestem Kamil 👋<br>
-  Studiuję informatykę na Politechnice Gdańskiej i najlepiej czuję się w środowisku Linuxa.<br>
-  Interesuję się automatyzacją, cyberbezpieczeństwem i niskopoziomowym grzebaniem w systemach.<br>
-  W wolnym czasie tworzę skrypty, testuję zabezpieczenia (HTB) i rozwijam własne projekty.`,
-
-        skills: `Umiejętności techniczne:<br>
-  • Systemy Linux – konfiguracja, usługi, automatyzacja<br>
-  • Programowanie – Python, Bash, C++<br>
-  • Tworzenie i hostowanie stron – Apache, Nginx, Astro<br>
-  • Sieci komputerowe – TCP/IP, DHCP, DNS<br>
-  • Zdalna pomoc – SSH, AnyDesk, TeamViewer<br>
-  • Wirtualizacja – VirtualBox, podstawy VMware<br>
-  `,
-
-        projects: `Wybrane projekty:<br>
-  1. **Portfolio** – [Astro + GSAP] – <a href="https://kamilportfolio-ten.vercel.app/" target="_blank">zobacz tutaj</a><br>
-  2. **HTB Labs Progress** – Notatki i writeupy z Hack The Box<br>
-  3. **Automation Scripts** – Skrypty do automatyzacji w CLI<br>
-  (więcej na: <a href="https://github.com/adisonInc" target="_blank">GitHub</a>)`,
-
-        contact: `Kontakt:<br>
-  📧 Email: mavel2004cr8@gmail.com<br>
-  🐙 GitHub: <a href="https://github.com/adisonInc" target="_blank">adisonInc</a><br>`,
-    };
+    help: `╔══════════════════════════════════════════════════════════════════════╗<br>
+    ║                          ✨ AVAILABLE COMMANDS ✨                     ║<br>
+    ╠══════════════════════════════════════════════════════════════════════╣<br>
+    ║  🆘 help      - show this command list                              ║<br>
+    ║  👤 about     - learn about me                                      ║<br>
+    ║  🛠️  skills    - my technical skills                                 ║<br>
+    ║  🚀 projects  - my projects showcase                                ║<br>
+    ║  📬 contact   - get in touch                                        ║<br>
+    ║  🧹 clear     - clear terminal                                      ║<br>
+    ╚══════════════════════════════════════════════════════════════════════╝`,
+    
+    about: `┌─────────────────────────────────────────────────────────────────────┐<br>
+    │                          👋 Hello, I'm Kamil!                       │<br>
+    ├─────────────────────────────────────────────────────────────────────┤<br>
+    │                                                                     │<br>
+    │  🎓 Computer Science student at Gdansk University of Technology     │<br>
+    │  🐧 Linux enthusiast - it's my natural habitat                     │<br>
+    │  🔧 Passionate about automation & cybersecurity                    │<br>
+    │  🕳️  Love digging deep into low-level system internals              │<br>
+    │                                                                     │<br>
+    │  ⚡ In my free time:                                                │<br>
+    │     • Creating automation scripts                                   │<br>
+    │     • Pentesting on HackTheBox                                     │<br>
+    │     • Building personal projects                                    │<br>
+    │                                                                     │<br>
+    └─────────────────────────────────────────────────────────────────────┘`,
+    
+    skills: `╭─────────────────────────────────────────────────────────────────────╮<br>
+    │                        🛠️  TECHNICAL SKILLS                         │<br>
+    ├─────────────────────────────────────────────────────────────────────┤<br>
+    │                                                                     │<br>
+    │  🐧 Linux Systems                                                   │<br>
+    │     └─ Configuration, Services, Automation                         │<br>
+    │                                                                     │<br>
+    │  💻 Programming                                                     │<br>
+    │     └─ Python • Bash • C++                                         │<br>
+    │                                                                     │<br>
+    │  🌐 Web Development & Hosting                                       │<br>
+    │     └─ Apache • Nginx • Astro                                      │<br>
+    │                                                                     │<br>
+    │  🔗 Remote Support                                                  │<br>
+    │     └─ SSH • AnyDesk • TeamViewer                                   │<br>
+    │                                                                     │<br>
+    │  ⚡ Electronics                                                     │<br>
+    │     └─ Circuit design • Microcontrollers • Hardware debugging      │<br>
+    │                                                                     │<br>
+    ╰─────────────────────────────────────────────────────────────────────╯`,
+    
+    projects: `┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓<br>
+    ┃                        🚀 FEATURED PROJECTS                         ┃<br>
+    ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫<br>
+    ┃                                                                     ┃<br>
+    ┃  1. 🎨 **Portfolio Website**                                        ┃<br>
+    ┃     └─ Built with Astro + GSAP                                      ┃<br>
+    ┃     └─ <a href="https://kamilportfolio-ten.vercel.app/" target="_blank">🔗 View Live Demo</a>                              ┃<br>
+    ┃                                                                     ┃<br>
+    ┃  2. 🏴‍☠️ **HTB Labs Progress**                                        ┃<br>
+    ┃     └─ Hack The Box notes & writeups                               ┃<br>
+    ┃     └─ Cybersecurity learning journey                              ┃<br>
+    ┃                                                                     ┃<br>
+    ┃  3. 🤖 **Automation Scripts**                                       ┃<br>
+    ┃     └─ CLI automation tools                                        ┃<br>
+    ┃     └─ System administration helpers                               ┃<br>
+    ┃                                                                     ┃<br>
+    ┃  📂 More projects available on:                                     ┃<br>
+    ┃     <a href="https://github.com/adisonInc" target="_blank">🐙 GitHub @adisonInc</a>                                       ┃<br>
+    ┃                                                                     ┃<br>
+    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛`,
+    
+    contact: `╔═══════════════════════════════════════════════════════════════════════╗<br>
+    ║                           📬 GET IN TOUCH                             ║<br>
+    ╠═══════════════════════════════════════════════════════════════════════╣<br>
+    ║                                                                       ║<br>
+    ║   📧 Email                                                            ║<br>
+    ║      └─ mavel2004cr8@gmail.com                                        ║<br>
+    ║                                                                       ║<br>
+    ║   🐙 GitHub                                                           ║<br>
+    ║      └─ <a href="https://github.com/adisonInc" target="_blank">@adisonInc</a>                                              ║<br>
+    ║                                                                       ║<br>
+    ║   💬 Let's connect and build something amazing together!              ║<br>
+    ║                                                                       ║<br>
+    ╚═══════════════════════════════════════════════════════════════════════╝`
+};
 
     function addLine(text) {
         const content = document.getElementById("terminal-content");

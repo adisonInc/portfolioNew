@@ -1,10 +1,16 @@
 ---
+import { Image } from 'astro:assets';
+
 import Small from "./Small.astro"
+import circle1 from '../assets/circle1.svg';
+
 ---
+
+
 
 <div class="solar" >
     <div class="smaller"></div>
-    <img  class="elips" src="/img/circle1.svg" alt="elipsa" />
+        <Image class="elips" src={circle1} alt="elips" />
     <div class="planets">
         <Small color="#3326EB" top="0%" left="50%" rotate="-90deg" img="/img/rust.png" />
         <Small color="#181790" top="50%" left="0%" rotate="180deg" img="/img/cpp.png" />
