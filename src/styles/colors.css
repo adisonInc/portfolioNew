@@ -1,0 +1,17 @@
+:root {
+  --color-shadow: rgba(255, 255, 255, 0.3);
+  --color-white: #fff;
+  --color-white-solid: #ffffff;
+  --color-blue: rgb(7, 32, 255);
+  --color-blue-light: rgb(80, 162, 255);
+  --color-red: rgb(155, 0, 0);
+  --color-red-dark: rgb(118, 1, 1);
+  --color-black: #000114;
+  --color-shadow-blue: rgb(0, 11, 81);
+  --color-blue-bright: #00a6ff;
+  --color-bg-dark: rgb(1, 2, 42);
+  --color-purple: rgb(110, 70, 255);
+  --color-cyan-light: rgb(132, 255, 255);
+  --color-pink: #caf6ff91;
+  --color-red-shadow: #832a2a69;
+}
