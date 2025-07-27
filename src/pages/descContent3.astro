@@ -7,29 +7,24 @@ export const descs = [
     "WORK IN PROGRESS 4",
 ];
 ---
-
-
-<h4 id="name">Wedding Website</h4>
-<p id="short">Built for a wedding event</p>
+<h4 id="name">LinuxScripts</h4>
+<p id="short">Useful scripts for automation and daily Linux tasks</p>
 
 <div style="padding: 10px;">
-  <a style="width: 30%; margin: 30px;" href="https://www.pawelweronika.fun" target="_blank">
-    <img id="img" src="/img/screen2.png" alt="wedding site screenshot" />
-  </a>
-
   <h2 id="about">About</h2>
-  <p>
-    Features a live countdown to the wedding, an RSVP form, and a Google Form for uploading guest photos.
-  </p>
+  <p>A set of Bash scripts for backups, file conversion, HTML analysis, and system visualization.</p>
 
-  <h2>Tech stack:</h2>
-  <p>- HTML & CSS (vanilla)</p>
-  <p>- JavaScript</p>
-  <p>- PHP + SQL database</p>
+  <h2>Included:</h2>
+  <p><strong>gui_convert.sh</strong> – image converter with Zenity GUI</p>
+  <p><strong>offcie_backup.sh</strong> – backup office files by date</p>
+  <p><strong>scan_html.sh</strong> – scan HTML files and count links</p>
+  <p><strong>wallproc/</strong> – generate wallpaper from running processes</p>
 </div>
 
 
-</div>
+
+
+
 <style>
     h2{
         font-size: 130%;
@@ -44,7 +39,7 @@ export const descs = [
         overflow-wrap: break-word;
         word-break: break-word;
         margin: 0;
-          padding: 0;
+        padding: 0;
     }
     #short{
        
@@ -59,20 +54,25 @@ export const descs = [
         padding: 0;
         margin: 0;
         line-height: 1.0;
-        font-size: 110%;
+        font-size: 80%;
         overflow-wrap: break-word;
         word-break: break-word;
     }
     #img {
-        margin-top: 100px;
-        margin-left: 50px;
-        margin-right: 100px;
-        margin-bottom: 400px;
-        width: 20%;
-        float: right;
+       
+       
+        width: 100%;
+        
         border-radius: 1px;
         -webkit-box-shadow: 0px 0px 16px 3px rgba(255, 255, 255, 0.3);
         -moz-box-shadow: 0px 0px 16px 3px rgba(255, 255, 255, 0.3);
         box-shadow: 0px 0px 16px 3px rgba(255, 255, 255, 0.3);
+    }
+    .linkPos{
+        margin-top: 50px;
+        width: 40%;
+         position: absolute;
+        left: 50%;
+        transform: translate(-50%);
     }
 </style>

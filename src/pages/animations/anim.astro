@@ -1,86 +1,130 @@
-
 <script>
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
-    import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-    import { TextPlugin } from "gsap/all";
-import { descs } from "../descContent1.astro";
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.registerPlugin(ScrollToPlugin);
-    gsap.registerPlugin(TextPlugin)
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+  import { TextPlugin } from "gsap/all";
+  import { descs } from "../descContent1.astro";
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollToPlugin);
+  gsap.registerPlugin(TextPlugin);
 
-    ScrollTrigger.normalizeScroll(true);
+  ScrollTrigger.normalizeScroll(true);
 
-    const labels = ["first", "second", "third", "fourth"]; // Add more labels here
-    const totalRotation = 360;
-    const rotateStep = totalRotation / labels.length;
+  const labels = ["first", "second", "third", "fourth"]; // Add more labels here
+  const totalRotation = 360;
+  const rotateStep = totalRotation / labels.length;
+
+  function updateProject(i: number) {
+    gsap.set(".proj", { autoAlpha: 0 });
+    gsap.to(`#proj${i}`, { autoAlpha: 1, duration: 0.5 });
+  }
 
 
-    function updateProject(i: number) {
-        gsap.set(".proj", { autoAlpha: 0 });
-        gsap.to(`#proj${i}`, { autoAlpha: 1, duration: 0.5 });
-    }
+ 
+  let isVisible = false; 
 
-  let tl = gsap.timeline( {
+  const hideButtons = ['start', 'proj', 'first', 'second', 'third', 'fourth', 'cont','closer'];
+
+      hideButtons.forEach(id => {
+          document.getElementById(id).addEventListener('click', function() {
+              gsap.to(".terminal-container", {
+                  opacity: 0,
+                  y: -1500,
+                  duration: 1,
+                  ease: "power3.in"
+              });
+              isVisible = false; 
+          });
+      });
+
+  document.querySelectorAll(".aboutBtn").forEach((button) => {
+    button.addEventListener("click", function () {
+      if (isVisible) {
+        // Schowaj terminal
+        gsap.to(".terminal-container", {
+          opacity: 0,
+          y: -1500,
+          duration: 1,
+          ease: "power3.in",
+        });
+        isVisible = false;
+      } else {
+        // Pokaż terminal
+        gsap.to(".terminal-container", {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+        });
+        isVisible = true;
+      }
+    });
+  });
+
+  let tl = gsap.timeline({
     scrollTrigger: {
-    trigger: ".solar",
-    pin: ".solar",
-    start: "center center",
-    endTrigger: ".end",
-    end: 'bottom bottom',
-    fastScrollEnd: true,
-    scrub: 1,
-        // snap: {
-        //     snapTo: 'labelsDirectional', 
-        //     duration: {min: 0.1, max: 1},
-        //     delay: 0, 
-        //     ease: 'power1.inOut' 
-        // }
-  }});
+      trigger: ".solar",
+      pin: ".solar",
+      start: "center center",
+      endTrigger: ".end",
+      end: "bottom bottom",
+      fastScrollEnd: true,
+      scrub: 1,
+      // snap: {
+      //     snapTo: 'labelsDirectional',
+      //     duration: {min: 0.1, max: 1},
+      //     delay: 0,
+      //     ease: 'power1.inOut'
+      // }
+    },
+  });
 
-
-  
-tl.addLabel("start")
-.to(".solar",{
+  tl.addLabel("start").to(".solar", {
     x: "-50vw",
     rotate: "360",
     duration: 1,
-})
-// .to(".tree",{
-//     right: "5%",
-//     opacity: +1,
-//     duration: 1,
+  });
+  // .to(".tree",{
+  //     right: "5%",
+  //     opacity: +1,
+  //     duration: 1,
 
-// },)
-// .fromTo(".descMain",{
-//     y: "-100vh",
-// },{
-//     y: "+=100vh",
-//      opacity: "+=0.7",
-//     },"<");
-
-
+  // },)
+  // .fromTo(".descMain",{
+  //     y: "-100vh",
+  // },{
+  //     y: "+=100vh",
+  //      opacity: "+=0.7",
+  //     },"<");
 
   labels.forEach((label, i) => {
-    tl.addLabel(label).to(".solar", {
-      rotate: `+=${rotateStep}`,
-      duration: 1,
-    })
-    .to(".descText", {
-        text: `${descs[i]} `
-    },"-=1.5")
-    .to(`#${label}`,{
-       color: "blue",
-      },"<")
-    .to(`#${label}`,{
-       color: "white",
-    })
+    tl.addLabel(label)
+      .to(".solar", {
+        rotate: `+=${rotateStep}`,
+        duration: 1,
+      })
+      .to(
+        ".descText",
+        {
+          text: `${descs[i]} `,
+        },
+        "-=1.5",
+      )
+      .to(
+        `#${label}`,
+        {
+          color: "blue",
+        },
+        "<",
+      )
+      .to(`#${label}`, {
+        color: "rgb(80, 162, 255)",
+      });
   });
 
   window.addEventListener("DOMContentLoaded", () => {
-
     let buttons = document.querySelectorAll(".tree p");
-    let descBox = document.getElementById("descBox")
+    let descBox = document.getElementById("descBox");
 
     buttons.forEach((button) => {
       let animation = gsap.to(button, {
@@ -92,10 +136,9 @@ tl.addLabel("start")
       button.addEventListener("mouseenter", () => animation.play());
       button.addEventListener("mouseleave", () => animation.reverse());
 
-
       button.addEventListener("click", () => {
         let label = button.id;
-        
+
         if (tl.scrollTrigger) {
           let scrollTo = tl.scrollTrigger.labelToScroll(label);
 
@@ -108,6 +151,4 @@ tl.addLabel("start")
       });
     });
   });
-
 </script>
-

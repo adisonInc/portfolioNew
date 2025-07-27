@@ -1,0 +1,232 @@
+---
+// Terminal.astro
+---
+
+<div class="terminal-container">
+    <div class="terminal-header">
+        <div class="terminal-title">portfolio@terminal:~</div>
+        <div class="btn" id="closer"></div>
+    </div>
+    <div class="terminal-body">
+        <div id="terminal-content">
+            <div class="terminal-line">
+                <span class="prompt">portfolio@dev:~$</span>
+                <span
+                    >Witaj w moim portfolio! Wpisz komendę help aby rozpocząć.</span
+                >
+            </div>
+        </div>
+        <div class="input-line">
+            <span class="prompt">portfolio@dev:~$</span>
+            <input
+                type="text"
+                id="terminal-input"
+                autocomplete="off"
+                spellcheck="false"
+            />
+        </div>
+    </div>
+</div>
+
+<style>
+    #closer {
+        right: 0;
+        position: absolute;
+        margin: 10px;
+        color: rgb(155, 0, 0);
+        background-color: rgb(118, 1, 1);
+    }
+    .terminal-container {
+        z-index: 1;
+        opacity: 0;
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translate(-50%);
+
+        border-radius: 8px;
+        box-shadow: 0px 0px 300px 100px rgb(0, 11, 81);
+        /* inset 1px 0px 10px 10px rgb(255, 255, 255); */
+        font-family: "Courier New", monospace;
+        font-size: 14px;
+        margin: 20px auto;
+        width: 900px;
+        overflow: hidden;
+    }
+
+    .terminal-buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .btn {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .terminal-title {
+        color: aqua;
+        font-size: 13px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .terminal-body {
+        background: #000114;
+        color: rgb(255, 255, 255);
+        padding: 20px;
+        min-height: 500px;
+        max-height: 1000px;
+        overflow-y: auto;
+    }
+
+    .terminal-line {
+        margin-top: 20px;
+        margin-bottom: 8px;
+        line-height: 1.5;
+    }
+
+    .prompt {
+        color: aqua;
+        margin-right: 8px;
+    }
+
+    .input-line {
+        display: flex;
+        align-items: center;
+        position: sticky;
+        bottom: 0;
+        background: transparent;
+        padding-top: 10px;
+    }
+
+    #terminal-input {
+        z-index: -1;
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-family: inherit;
+        font-size: inherit;
+        outline: none;
+        flex: 1;
+        margin-left: 8px;
+    }
+
+    .cursor {
+        color: #00a6ff;
+        animation: blink 1s infinite;
+        margin-left: 2px;
+    }
+
+    .output {
+        color: #ffffff;
+        margin-left: 20px;
+        white-space: pre-wrap;
+    }
+
+    @keyframes blink {
+        0%,
+        50% {
+            opacity: 1;
+        }
+        51%,
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .terminal-container {
+            margin: 10px;
+            font-size: 12px;
+        }
+
+        .terminal-body {
+            min-height: 300px;
+            padding: 15px;
+        }
+    }
+</style>
+
+<script>
+    const commands = {
+        help: `˚. ✦.˳·˖✶ ⋆.✧̣˚.˚. ✦.˳·˖✶ ⋆.✧̣˚.˚. ✦.˳·˖✶ ⋆.✧̣˚
+  <br>Dostępne komendy:<br>
+  help - lista komend<br>
+  about - kilka słów o mnie<br>
+  skills - moje umiejętności<br>
+  projects - moje projekty<br>
+  contact - dane kontaktowe<br>
+  clear - czyści terminal<br>
+  ˚. ✦.˳·˖✶ ⋆.✧̣˚.˚. ✦.˳·˖✶ ⋆.✧̣˚.˚. ✦.˳·˖✶ ⋆.✧̣˚`,
+
+        about: `Cześć, jestem Kamil 👋<br>
+  Studiuję informatykę na Politechnice Gdańskiej i najlepiej czuję się w środowisku Linuxa.<br>
+  Interesuję się automatyzacją, cyberbezpieczeństwem i niskopoziomowym grzebaniem w systemach.<br>
+  W wolnym czasie tworzę skrypty, testuję zabezpieczenia (HTB) i rozwijam własne projekty.`,
+
+        skills: `Umiejętności techniczne:<br>
+  • Systemy Linux – konfiguracja, usługi, automatyzacja<br>
+  • Programowanie – Python, Bash, C++<br>
+  • Tworzenie i hostowanie stron – Apache, Nginx, Astro<br>
+  • Sieci komputerowe – TCP/IP, DHCP, DNS<br>
+  • Zdalna pomoc – SSH, AnyDesk, TeamViewer<br>
+  • Wirtualizacja – VirtualBox, podstawy VMware<br>
+  `,
+
+        projects: `Wybrane projekty:<br>
+  1. **Portfolio** – [Astro + GSAP] – <a href="https://kamilportfolio-ten.vercel.app/" target="_blank">zobacz tutaj</a><br>
+  2. **HTB Labs Progress** – Notatki i writeupy z Hack The Box<br>
+  3. **Automation Scripts** – Skrypty do automatyzacji w CLI<br>
+  (więcej na: <a href="https://github.com/adisonInc" target="_blank">GitHub</a>)`,
+
+        contact: `Kontakt:<br>
+  📧 Email: mavel2004cr8@gmail.com<br>
+  🐙 GitHub: <a href="https://github.com/adisonInc" target="_blank">adisonInc</a><br>`,
+    };
+
+    function addLine(text) {
+        const content = document.getElementById("terminal-content");
+        const line = document.createElement("div");
+        line.className = "terminal-line";
+        line.innerHTML = text;
+        content.appendChild(line);
+        content.scrollTop = content.scrollHeight;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const input = document.getElementById(
+            "terminal-input",
+        ) as HTMLInputElement;
+
+        input.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                const command = input.value.trim();
+
+                addLine(`<span style="color:aqua"
+         class="prompt">portfolio@dev:~$</span> ${command}`);
+
+                if (command === "clear") {
+                    document.getElementById("terminal-content")!.innerHTML = "";
+                } else if (commands[command]) {
+                    addLine(`<div class="output">${commands[command]}</div>`);
+                } else if (command !== "") {
+                    addLine(
+                        `<div class="output">Nieznana komenda: ${command}</div>`,
+                    );
+                }
+
+                input.value = "";
+            }
+        });
+
+        input.focus();
+
+        document.addEventListener("click", function () {
+            input.focus();
+        });
+    });
+</script>

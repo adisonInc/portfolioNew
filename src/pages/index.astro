@@ -8,7 +8,11 @@ import Menu from "./menu.astro";
 import Desc from "./desc.astro";
 import DescContent1 from "./descContent1.astro";
 import DescContent2 from "./descContent2.astro";
+import DescContent3 from "./descContent3.astro";
+import DescContent4 from "./descContent4.astro";
 import Footer from "./footer.astro";
+import Terminal from './terminal.astro'
+
 ---
 
 <html lang="en">
@@ -22,6 +26,7 @@ import Footer from "./footer.astro";
 
 	<body>
 		<div class="end"></div>
+		<Terminal></Terminal>
 		<Anim />
 		<Backgrounds />
 		<MainStyle />
@@ -29,7 +34,7 @@ import Footer from "./footer.astro";
 		<System />
 		<Menu />
 		
-		<Desc  style="position: absolute; top: 135vh; left: 25%;">
+		<Desc  style="height:700px; position: absolute; top: 135vh; left: 25%;">
 			<div id="belt"></div>
 			<DescContent1 />
 		</Desc>
@@ -37,9 +42,15 @@ import Footer from "./footer.astro";
 			<div id="belt"></div>
 			<DescContent2 />
 		</Desc>
-		<Desc style="position: absolute; top: 480vh; left: 25%; " />
+		<Desc style="position: absolute; top: 480vh; left: 25%; " >
+			<div id="belt"></div>
+			<DescContent3/>
+		</Desc>
 		
-		<Desc style="position: absolute; top: 640vh; left: 25%;" />
+		<Desc style="position: absolute; top: 640vh; left: 25%;" >
+			<div id="belt"></div>
+			<DescContent4/>
+		</Desc>
 		<Footer></Footer>
 	</body>
 	<style>
@@ -63,7 +74,7 @@ import Footer from "./footer.astro";
 			top: 130vh;
 			left: 50%;
 			width: 200px;
-			height: 300px;
+			height: 600px;
 		}
 
 		#second {
@@ -101,7 +112,7 @@ import Footer from "./footer.astro";
 			left: 50%;
 			transform: translate(-50%, 0%);
 			background-color: aliceblue;
-			box-shadow: 0px 0px 300px 100px rgb(6, 69, 69);
+			box-shadow: 0px 0px 300px 100px rgb(0, 11, 81);
 		}
 	</style>
 </html>

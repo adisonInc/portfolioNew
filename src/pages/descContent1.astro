@@ -8,30 +8,32 @@ export const descs = [
 ];
 ---
 <h4 id="name"> Portfolio </h4>
-<p id="short" >strona i  moje portfolio</p>
+<p id="short" >Site and my digital portfolio</p>
 <div style="padding: 10px;">
   
     
  
-    <h2 id="about"> About</h2>
-    <p>Portfolio prezentujace moje projekty oraz poczynania</p>
-    <h2> Technologie:</h2>
-        <p>-Astro</p>
-        <p>-Vercel</p>
+    <h2 id="about">About</h2>
+    <p>
+    Static site built with Astro, deployed on Vercel.  
+    Serves as my portfolio and sandbox for side projects.
+    </p>
 
-       <a href="." target="_blank">
+    <h2>Tech stack:</h2>
+    <p>- Astro</p>
+    <p>- Vercel</p>
+    <p>- Markdown / JSON / Git</p>
+
+    <div class="linkPos">
+        <a href="." target="_blank">
         <img  id="img"  src="/img/screen1.png" alt="portfolio png" />
     </a>
+    </div>
+     
 </div>
 
 
-<!-- Nazwa
-Summary
-zdjecie
-About
-Technologie
-Webiste
-Github -->
+
 
 <style>
     h2{
@@ -47,7 +49,7 @@ Github -->
         overflow-wrap: break-word;
         word-break: break-word;
         margin: 0;
-          padding: 0;
+        padding: 0;
     }
     #short{
        
@@ -67,13 +69,20 @@ Github -->
         word-break: break-word;
     }
     #img {
-        margin-right: 100px;
-        margin-bottom: 400px;
-        width: 50%;
-        float: right;
+       
+       
+        width: 100%;
+        
         border-radius: 1px;
         -webkit-box-shadow: 0px 0px 16px 3px rgba(255, 255, 255, 0.3);
         -moz-box-shadow: 0px 0px 16px 3px rgba(255, 255, 255, 0.3);
         box-shadow: 0px 0px 16px 3px rgba(255, 255, 255, 0.3);
+    }
+    .linkPos{
+        margin-top: 50px;
+        width: 40%;
+         position: absolute;
+        left: 50%;
+        transform: translate(-50%);
     }
 </style>
