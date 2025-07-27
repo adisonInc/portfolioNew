@@ -19,23 +19,30 @@
     gsap.to(`#proj${i}`, { autoAlpha: 1, duration: 0.5 });
   }
 
+  let isVisible = false;
 
- 
-  let isVisible = false; 
+  const hideButtons = [
+    "start",
+    "proj",
+    "first",
+    "second",
+    "third",
+    "fourth",
+    "cont",
+    "closer",
+  ];
 
-  const hideButtons = ['start', 'proj', 'first', 'second', 'third', 'fourth', 'cont','closer'];
-
-      hideButtons.forEach(id => {
-          document.getElementById(id).addEventListener('click', function() {
-              gsap.to(".terminal-container", {
-                  opacity: 0,
-                  y: -1500,
-                  duration: 1,
-                  ease: "power3.in"
-              });
-              isVisible = false; 
-          });
+  hideButtons.forEach((id) => {
+    document.getElementById(id).addEventListener("click", function () {
+      gsap.to(".terminal-container", {
+        opacity: 0,
+        y: -1500,
+        duration: 1,
+        ease: "power3.in",
       });
+      isVisible = false;
+    });
+  });
 
   document.querySelectorAll(".aboutBtn").forEach((button) => {
     button.addEventListener("click", function () {
@@ -68,7 +75,7 @@
       start: "center center",
       endTrigger: ".end",
       end: "bottom bottom",
-      fastScrollEnd: true,
+      // fastScrollEnd: true,
       scrub: 1,
       // snap: {
       //     snapTo: 'labelsDirectional',
@@ -141,12 +148,15 @@
 
         if (tl.scrollTrigger) {
           let scrollTo = tl.scrollTrigger.labelToScroll(label);
-
-          gsap.to(window, {
-            scrollTo: { y: scrollTo, autoKill: false },
-            duration: 1,
-            ease: "power2.inOut",
-          });
+          if (scrollTo != null && !isNaN(scrollTo)) {
+            gsap.to(window, {
+              scrollTo: { y: scrollTo, autoKill: false },
+              duration: 1,
+              ease: "power2.inOut",
+            });
+          } else {
+            console.warn(`Label "${label}" not found in timeline.`);
+          }
         }
       });
     });
