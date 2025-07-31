@@ -1,14 +1,18 @@
+
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
   import { TextPlugin } from "gsap/all";
-  import { descs } from "../descContents/descContent1.astro";
-  gsap.registerPlugin(ScrollTrigger);
+  // import { descs } from "../descContents/descContent1.astro";
+  // ScrollSmoother requires ScrollTrigger
+  import { ScrollSmoother } from "gsap/ScrollSmoother";
+
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
   gsap.registerPlugin(ScrollToPlugin);
   gsap.registerPlugin(TextPlugin);
+ 
 
-  ScrollTrigger.normalizeScroll(true);
 
   const labels = ["first", "second", "third", "fourth"]; // Add more labels here
   const totalRotation = 360;
@@ -28,7 +32,6 @@
     "second",
     "third",
     "fourth",
-    "cont",
     "closer",
   ];
 
@@ -50,7 +53,7 @@
         // Schowaj terminal
         gsap.to(".terminal-container", {
           opacity: 0,
-          y: -1500,
+          y: -1000,
           duration: 1,
           ease: "power3.in",
         });
@@ -59,7 +62,7 @@
         // Pokaż terminal
         gsap.to(".terminal-container", {
           opacity: 1,
-          y: 0,
+          y: +1000,
           duration: 1,
           ease: "power3.out",
         });
@@ -113,7 +116,7 @@
       .to(
         ".descText",
         {
-          text: `${descs[i]} `,
+          text: `d `,
         },
         "-=1.5",
       )
@@ -148,6 +151,7 @@
 
         if (tl.scrollTrigger) {
           let scrollTo = tl.scrollTrigger.labelToScroll(label);
+        
           if (scrollTo != null && !isNaN(scrollTo)) {
             gsap.to(window, {
               scrollTo: { y: scrollTo, autoKill: false },

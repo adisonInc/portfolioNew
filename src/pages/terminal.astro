@@ -1,8 +1,10 @@
 ---
 // Terminal.astro
 ---
+<!-- <div id="blackbox"></div> -->
 
 <div class="terminal-container">
+    <div id="scrollTerm">  </div>
     <div class="terminal-header">
         <div class="terminal-title">portfolio@terminal:~</div>
         <div class="btn" id="closer"></div>
@@ -29,6 +31,14 @@
 </div>
 
 <style>
+    #blackbox{
+        z-index: 2;
+        position: absolute;
+        top: 200px;
+        height: 100vh;
+        width: 100vw;
+        background-color: black;
+    }
     #closer {
         right: 0;
         position: absolute;
@@ -37,10 +47,10 @@
         background-color: rgb(118, 1, 1);
     }
     .terminal-container {
-        z-index: 1;
+        z-index: 3;
         opacity: 0;
         position: absolute;
-        top: 200px;
+        top: -850px;
         left: 50%;
         transform: translate(-50%);
 
@@ -50,7 +60,7 @@
         font-family: "Courier New", monospace;
         font-size: 14px;
         margin: 20px auto;
-        width: 900px;
+        width: 1400px;
         overflow: hidden;
     }
 
@@ -78,8 +88,8 @@
         background: #000114;
         color: rgb(255, 255, 255);
         padding: 20px;
-        min-height: 500px;
-        max-height: 1000px;
+        min-height: 900px;
+        max-height: 900px;
         overflow-y: auto;
     }
 
